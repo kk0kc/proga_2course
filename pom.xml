@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pupu</groupId>
-    <artifactId>hw1</artifactId>
+    <groupId>orrg</groupId>
+    <artifactId>hw2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>war</packaging>
@@ -19,19 +19,16 @@
     </properties>
 
     <dependencies>
-        <!-- Зависимость для томката версии 10+ -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
-            <!-- Конфигурации и версии пакетов лучше выносить в properties блок -->
             <version>${servlet.api.version}</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>hw1</finalName>
+        <finalName>hw2</finalName>
         <plugins>
-            <!-- Плагин, необходимый для сборки WAR-ников в annotation-based проектах, без web.xml конфигурации -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>

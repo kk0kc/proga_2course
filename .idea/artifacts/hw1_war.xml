@@ -7,8 +7,8 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="proba1.war">
-      <element id="artifact" artifact-name="hw1:war exploded" />
+    <root id="archive" name="hw2.war">
+      <element id="artifact" artifact-name="hw2:war exploded" />
     </root>
   </artifact>
 </component>
