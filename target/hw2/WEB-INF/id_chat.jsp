@@ -177,12 +177,17 @@
             <input type="text" placeholder="Enter user name" name="user" required>
             <button type="submit">Enter</button>
         </div>
+
+<%--        <div class="container">--%>
+<%--            <input type="text" placeholder="Enter room ID" name="id_chat" required>--%>
+<%--            <button type="submit">Open</button>--%>
+<%--        </div>--%>
     </form>
 </div>
 
 <div id="id02" class="modal">
 
-    <form class="modal-content animate" action="/room" method="get">
+    <form class="modal-content animate" action="/id" method="get">
         <div class="container">
             <input type="text" placeholder="Enter room ID" name="id_chat" required>
             <button type="submit">Open</button>
@@ -204,5 +209,4 @@
 
 </body>
 </html>
-
 

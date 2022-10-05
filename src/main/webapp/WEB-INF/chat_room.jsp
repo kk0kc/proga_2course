@@ -175,15 +175,15 @@
         <center><input type="text" placeholder="Enter your message" name="message" required></center>
         <center><button type="submit">Send</button></center>
     </form>
-        <% ServletContext servletContext = request.getServletContext(); %>
-        <% String activeRoom2 = (String) session.getAttribute("room"); %>
-        <% List<MessageEntity> list = SessionCreatedListener.messageEntities; %>
-        <% for (MessageEntity entity : list) { %>
-        <% if (Objects.equals(entity.getLogin(), activeRoom2))  { %>
-        <center> • <%= entity.getUser()  %> :
-            <%= entity.getUserMessage()  %> </center><br>
-        <% } %>
-        <% } %>
+    <% String activeRoom2 = (String) session.getAttribute("room"); %>
+    <% List<MessageEntity> list = SessionCreatedListener.messageEntities; %>
+    <% for (MessageEntity entity : list) { %>
+    <% if (Objects.equals(entity.getLogin(), activeRoom2))  { %>
+    <center> • <%= entity.getUser()  %> :
+        <%= entity.getUserMessage()  %> </center><br>
+    <% } %>
+    <% } %>
+
 </div>
 </body>
 </html>

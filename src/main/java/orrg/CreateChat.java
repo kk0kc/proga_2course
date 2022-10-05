@@ -1,22 +1,19 @@
 package orrg;
 
-import jakarta.servlet.ServletContext;
-import jakarta.servlet.ServletException;
+import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+
 @WebServlet(name = "CreateChat", urlPatterns = "/start")
 public class CreateChat extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/create_chat.jsp").forward(req, resp);
-    }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -30,6 +27,10 @@ public class CreateChat extends HttpServlet {
         }
         SessionCreatedListener.rooms.add(dataId);
         req.getRequestDispatcher("/WEB-INF/id_chat.jsp").forward(req, resp);
+    }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/WEB-INF/create_chat.jsp").forward(req, resp);
     }
 }

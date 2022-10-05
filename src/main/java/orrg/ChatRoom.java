@@ -7,12 +7,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Objects;
-import java.util.concurrent.ConcurrentHashMap;
+
 
 @WebServlet(urlPatterns = "/room", name = "ChatRoom")
 public class ChatRoom extends HttpServlet {
@@ -23,10 +19,10 @@ public class ChatRoom extends HttpServlet {
         HttpSession session = req.getSession();
         String activeUser = (String) session.getAttribute("name");
         ServletContext servletContext = req.getServletContext();
-        String activeRoom = (String) servletContext.getAttribute("room");
+        String activeRoom = (String) session.getAttribute("room");
         MessageEntity entity = new MessageEntity(activeRoom,activeUser, message);
         SessionCreatedListener.messageEntities.add(entity);
-        resp.sendRedirect("/room");
+        req.getRequestDispatcher("/WEB-INF/chat_room.jsp").forward(req, resp);
     }
 
     @Override

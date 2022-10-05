@@ -26,7 +26,6 @@ public class ChatsId extends HttpServlet {
         session.setAttribute("name", dataUser);
         ArrayList<String> arr2 = SessionCreatedListener.users;
         ServletContext servletContext = req.getServletContext();
-
         for (String key : arr2) {
             if (Objects.equals(key, dataUser)) {
                 req.getRequestDispatcher("/WEB-INF/already_have.jsp").forward(req, resp);
@@ -45,19 +44,65 @@ public class ChatsId extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id_chat");
         HttpSession session = req.getSession();
-        session.setAttribute("room", id);
         ArrayList<String> arr = SessionCreatedListener.rooms;
-
         for (String key : arr) {
-            if (Objects.equals(id, key)) {
-                req.getServletContext().getRequestDispatcher("/chat_room.jsp").forward(req, resp);
-//                String path = req.getContextPath() + "/room";
-//                resp.sendRedirect(path);
-            } else {
-                req.getRequestDispatcher("/WEB-INF/not_found.jsp").forward(req, resp);
+            if (Objects.equals(id, key) && id != null) {
+                session.setAttribute("room", id);
+                resp.sendRedirect("/room");
+                return;
             }
-            return;
         }
+        req.getRequestDispatcher("/WEB-INF/not_found.jsp").forward(req, resp);
         req.getRequestDispatcher("/WEB-INF/id_chat.jsp").forward(req, resp);
+
     }
 }
+
+
+
+
+
+//@WebServlet(name = "MainServlet", urlPatterns = "/id")
+//public class ChatsId extends HttpServlet {
+//
+//    @Override
+//    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+//        HttpSession session = req.getSession();
+//        String dataUser = req.getParameter("user");
+//        session.setAttribute("name", dataUser);
+//        ArrayList<String> arr2 = SessionCreatedListener.users;
+//        ServletContext servletContext = req.getServletContext();
+//        for (String key : arr2) {
+//            if (Objects.equals(key, dataUser)) {
+//                req.getRequestDispatcher("/WEB-INF/already_have.jsp").forward(req, resp);
+//                return;
+//            }
+//        }
+//        servletContext.setAttribute("user", dataUser);
+//        if (!SessionCreatedListener.users.contains(dataUser)) {
+//            SessionCreatedListener.users.add(dataUser);
+//        }
+//
+//
+//
+//
+//
+//        String id = req.getParameter("id_chat");
+//        ArrayList<String> arr = SessionCreatedListener.rooms;
+//        for (String key : arr) {
+//            if (Objects.equals(id, key) && id != null) {
+//                session.setAttribute("room", id);
+//                resp.sendRedirect("/room");
+//                return;
+//            }
+//        }
+//        req.getRequestDispatcher("/WEB-INF/not_found.jsp").forward(req, resp);
+//    }
+//
+//
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        req.getRequestDispatcher("/WEB-INF/id_chat.jsp").forward(req, resp);
+//
+//    }
+//}

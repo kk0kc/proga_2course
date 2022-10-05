@@ -9,27 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2123e8b-cd41-4b4e-8234-6d8ddc0b714e" name="Changes" comment="hw1">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="e2123e8b-cd41-4b4e-8234-6d8ddc0b714e" name="Changes" comment="hw2 update">
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/orrg/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/ChatRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/orrg/ChatsId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/ChatsId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/orrg/MessageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/MessageEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/orrg/SessionCreatedListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/SessionCreatedListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/already_have.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/already_have.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/orrg/CreateChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/CreateChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/chat_room.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/chat_room.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/create_chat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/create_chat.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/id_chat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/id_chat.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/cat.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/images/cat.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/orrg/ChatRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/ChatRoom.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/orrg/ChatsId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/ChatsId.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/orrg/MessageEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/MessageEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/orrg/SessionCreatedListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/SessionCreatedListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/already_have.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/already_have.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/orrg/CreateChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/CreateChat.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/chat_room.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/chat_room.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatRoom.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatsId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatsId.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/MessageEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/MessageEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/SessionCreatedListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/SessionCreatedListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/CreateChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/CreateChat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/create_chat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/create_chat.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/id_chat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/id_chat.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw2/images/cat.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/images/cat.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +48,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -83,7 +83,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/1/Desktop/proga_2course-task2",
+    "last_opened_file_path": "C:/Users/1/proga 2/hw1",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
@@ -91,9 +91,6 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\1\proga 2\hw2\src\main\webapp\WEB-INF" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\1\proga 2\proba1\src\main\webapp\images" />
       <recent name="C:\Users\1\proga 2\proba1\src\main\webapp\WEB-INF\content_preview" />
@@ -231,13 +228,8 @@
       <workItem from="1664387293977" duration="1944000" />
       <workItem from="1664389322027" duration="2438000" />
       <workItem from="1664394763965" duration="985000" />
-      <workItem from="1664397736302" duration="8094000" />
-      <workItem from="1664435167475" duration="669000" />
-      <workItem from="1664442498650" duration="1223000" />
-      <workItem from="1664478308799" duration="4465000" />
-      <workItem from="1664482791351" duration="5268000" />
-      <workItem from="1664528576710" duration="3186000" />
-      <workItem from="1664887776047" duration="31126000" />
+      <workItem from="1664397736302" duration="4941000" />
+      <workItem from="1664986889563" duration="9004000" />
     </task>
     <task id="LOCAL-00001" summary="hw1">
       <created>1663792952529</created>
@@ -260,11 +252,53 @@
             <State />
           </value>
         </entry>
+        <entry key="f7c405af-0d19-43b2-9f03-b676f4c68194">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="f7c405af-0d19-43b2-9f03-b676f4c68194" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="hw1" />
-    <option name="LAST_COMMIT_MESSAGE" value="hw1" />
+    <MESSAGE value="hw2 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="hw2 update" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/orrg/ChatRoom.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
