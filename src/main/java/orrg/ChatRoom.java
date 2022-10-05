@@ -18,13 +18,11 @@ public class ChatRoom extends HttpServlet {
         String message = req.getParameter("message");
         HttpSession session = req.getSession();
         String activeUser = (String) session.getAttribute("name");
-        ServletContext servletContext = req.getServletContext();
         String activeRoom = (String) session.getAttribute("room");
         MessageEntity entity = new MessageEntity(activeRoom,activeUser, message);
         SessionCreatedListener.messageEntities.add(entity);
         req.getRequestDispatcher("/WEB-INF/chat_room.jsp").forward(req, resp);
     }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/chat_room.jsp").forward(req, resp);

@@ -11,32 +11,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Chat Room</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-
-<%--<form action="/room" method="post">--%>
-<%--    <label>--%>
-<%--        <input type="text" name="message">--%>
-<%--    </label>--%>
-<%--    <button>Send message</button>--%>
-<%--</form>--%>
-
-<%--<% ServletContext servletContext = request.getServletContext(); %>--%>
-<%--<% String activeRoom = (String) servletContext.getAttribute("room"); %>--%>
-<%--<% String activeRoom2 = (String) session.getAttribute("room"); %>--%>
-<%--<% List<MessageEntity> list = SessionCreatedListener.messageEntities; %>--%>
-<%--<% for (MessageEntity entity : list) { %>--%>
-<%--<% if (Objects.equals(entity.getLogin(), activeRoom2))  { %>--%>
-<%--<%= entity.getUser()  %> :--%>
-<%-- <%= entity.getUserMessage()  %> <br>--%>
-<%--<% } %>--%>
-<%--<% } %>--%>
-<%--</body>--%>
-<%--</html>--%>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -167,7 +141,6 @@
     </style>
 </head>
 <body>
-
 <center><h2>Start chat!</h2></center>
 <br><br><br>
 <div class="modal">
@@ -183,7 +156,6 @@
         <%= entity.getUserMessage()  %> </center><br>
     <% } %>
     <% } %>
-
 </div>
 </body>
 </html>

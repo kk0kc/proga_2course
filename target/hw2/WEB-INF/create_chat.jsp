@@ -6,22 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Create chat</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<h1>Create id of your own chat room:</h1>--%>
-<%--<form  action="/start" method="post">--%>
-<%--  <input type="text" name="id">--%>
-<%--  <button type="submit">Create!</button>--%>
-<%--</form>--%>
-<%--<br>--%>
-<%--<form action="/id" method="post">--%>
-<%--    <button type="submit">I already have room</button>--%>
-<%--</form>--%>
-<%--</body>--%>
-<%--</html>--%>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">

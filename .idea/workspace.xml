@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2123e8b-cd41-4b4e-8234-6d8ddc0b714e" name="Changes" comment="hw2 update">
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/orrg/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/ChatRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/orrg/ChatsId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/ChatsId.java" afterDir="false" />
@@ -18,17 +17,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/chat_room.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/chat_room.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/create_chat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/create_chat.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/id_chat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/id_chat.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/cat.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/images/cat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/orrg/ChatRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/ChatRoom.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/orrg/ChatsId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/ChatsId.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/orrg/CreateChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/CreateChat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/chat_room.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/chat_room.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatRoom.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatsId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatsId.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/CreateChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/CreateChat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/create_chat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/create_chat.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/id_chat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/id_chat.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/hw2/images/cat.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/images/cat.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +220,7 @@
       <workItem from="1664389322027" duration="2438000" />
       <workItem from="1664394763965" duration="985000" />
       <workItem from="1664397736302" duration="4941000" />
-      <workItem from="1664986889563" duration="9004000" />
+      <workItem from="1664986889563" duration="11296000" />
     </task>
     <task id="LOCAL-00001" summary="hw1">
       <created>1663792952529</created>
@@ -238,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663792952529</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="hw2 update">
+      <created>1664997283370</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664997283370</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +293,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/orrg/ChatRoom.java</url>
-          <line>23</line>
+          <line>22</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

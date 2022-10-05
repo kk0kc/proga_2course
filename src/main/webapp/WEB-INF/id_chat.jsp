@@ -6,34 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Let's go chat!</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-
-<%--<h1>Enter username:</h1>--%>
-<%--<form  action="/id" method="post">--%>
-<%--    <label>--%>
-<%--        <input type="text" name="user">--%>
-<%--    </label>--%>
-<%--    <button type="submit">Enter!</button>--%>
-<%--</form>--%>
-
-<%--<h1>Open chat room by id:</h1>--%>
-<%--<form action="/id" method="get">--%>
-<%--    <label>--%>
-<%--        <input type="text" name="id_chat">--%>
-<%--    </label>--%>
-<%--    <button type="submit">Open!</button>--%>
-<%--</form>--%>
-
-<%--</body>--%>
-<%--</html>--%>
-
-
-
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -165,36 +137,17 @@
     </style>
 </head>
 <body>
-
-
-<br><br><br><br><br>
-<center><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">User name</button></center>
-<center><button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Chat ID</button></center>
+<center><h1>Press to enter the chat room</h1></center>
+<center><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><img src="images/cat2.png" width="600" height="500"/></button></center>
 <div id="id01" class="modal">
-
     <form class="modal-content animate" action="/id" method="post">
         <div class="container">
             <input type="text" placeholder="Enter user name" name="user" required>
-            <button type="submit">Enter</button>
-        </div>
-
-<%--        <div class="container">--%>
-<%--            <input type="text" placeholder="Enter room ID" name="id_chat" required>--%>
-<%--            <button type="submit">Open</button>--%>
-<%--        </div>--%>
-    </form>
-</div>
-
-<div id="id02" class="modal">
-
-    <form class="modal-content animate" action="/id" method="get">
-        <div class="container">
             <input type="text" placeholder="Enter room ID" name="id_chat" required>
             <button type="submit">Open</button>
         </div>
     </form>
 </div>
-
 <script>
     // Get the modal
     var modal = document.getElementById('id01');
@@ -206,7 +159,6 @@
         }
     }
 </script>
-
 </body>
 </html>
 
