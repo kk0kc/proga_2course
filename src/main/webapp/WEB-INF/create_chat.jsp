@@ -1,42 +1,27 @@
-<%@ page import="orrg.MessageEntity" %>
-<%@ page import="java.util.List" %>
-<%@ page import="orrg.SessionCreatedListener" %>
-<%@ page import="java.util.Objects" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.Map" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: 1
   Date: 29.09.2022
-  Time: 0:17
+  Time: 23:03
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--<html>--%>
 <%--<head>--%>
-<%--    <title>Chat Room</title>--%>
+<%--    <title>Create chat</title>--%>
 <%--</head>--%>
 <%--<body>--%>
-
-<%--<form action="/room" method="post">--%>
-<%--    <label>--%>
-<%--        <input type="text" name="message">--%>
-<%--    </label>--%>
-<%--    <button>Send message</button>--%>
+<%--<h1>Create id of your own chat room:</h1>--%>
+<%--<form  action="/start" method="post">--%>
+<%--  <input type="text" name="id">--%>
+<%--  <button type="submit">Create!</button>--%>
 <%--</form>--%>
-
-<%--<% ServletContext servletContext = request.getServletContext(); %>--%>
-<%--<% String activeRoom = (String) servletContext.getAttribute("room"); %>--%>
-<%--<% String activeRoom2 = (String) session.getAttribute("room"); %>--%>
-<%--<% List<MessageEntity> list = SessionCreatedListener.messageEntities; %>--%>
-<%--<% for (MessageEntity entity : list) { %>--%>
-<%--<% if (Objects.equals(entity.getLogin(), activeRoom2))  { %>--%>
-<%--<%= entity.getUser()  %> :--%>
-<%-- <%= entity.getUserMessage()  %> <br>--%>
-<%--<% } %>--%>
-<%--<% } %>--%>
+<%--<br>--%>
+<%--<form action="/id" method="post">--%>
+<%--    <button type="submit">I already have room</button>--%>
+<%--</form>--%>
 <%--</body>--%>
 <%--</html>--%>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -107,7 +92,7 @@
             left: 0;
             top: 0;
             width: 100%; /* Full width */
-            height: 100%; /* Full height */
+            height: 40%; /* Full height */
             /*overflow: auto; !* Enable scroll if needed *!*/
             background-color: rgb(0,0,0); /* Fallback color */
             background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -168,23 +153,19 @@
 </head>
 <body>
 
-<center><h2>Start chat!</h2></center>
-<br><br><br>
+<center><h2>Create your own chat room!</h2></center>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+<center><img src="images/cat.png" alt="Avatar" class="avatar"></center>
 <div class="modal">
-    <form action="/room" method="post">
-        <center><input type="text" placeholder="Enter your message" name="message" required></center>
-        <center><button type="submit">Send</button></center>
+    <form action="/id" method="post">
+        <center><input type="text" placeholder="Enter Chat ID" name="id" required></center>
+        <br>
+        <center><button type="submit">Create</button></center>
     </form>
-        <% ServletContext servletContext = request.getServletContext(); %>
-        <% String activeRoom2 = (String) session.getAttribute("room"); %>
-        <% List<MessageEntity> list = SessionCreatedListener.messageEntities; %>
-        <% for (MessageEntity entity : list) { %>
-        <% if (Objects.equals(entity.getLogin(), activeRoom2))  { %>
-        <center> • <%= entity.getUser()  %> :
-            <%= entity.getUserMessage()  %> </center><br>
-        <% } %>
-        <% } %>
+    <form action="/id" method="get">
+        <center><button type="submit">I already have room</button></center>
+    </form>
 </div>
+
 </body>
 </html>
-

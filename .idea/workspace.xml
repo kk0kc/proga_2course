@@ -10,69 +10,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2123e8b-cd41-4b4e-8234-6d8ddc0b714e" name="Changes" comment="hw1">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/hw1_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/hw1_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/hw1_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/hw2_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/hw1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hw2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hw2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pupu/ContentServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pupu/DopServlets.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pupu/FirstDopServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pupu/MainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/ChatsId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pupu/SecondDopServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pupu/ThirdDopServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/cat_calculator.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/cat_photo.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/cat_text.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/content_preview/preview_calc.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/content_preview/preview_photo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/content_preview/preview_text.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/my.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/id_chat.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/brodsky.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/calcul_new.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/cat_photo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/cat_text.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/cat_who.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/ccalc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/kitten.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/stiiih.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/stik.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pupu/ContentServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pupu/DopServlets$ContentHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pupu/DopServlets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pupu/FirstDopServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pupu/MainServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pupu/SecondDopServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pupu/ThirdDopServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/cat_calculator.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/cat_photo.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/cat_text.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/classes/pupu/ContentServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/classes/pupu/DopServlets$ContentHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/classes/pupu/DopServlets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/classes/pupu/FirstDopServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/classes/pupu/MainServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/classes/pupu/SecondDopServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/classes/pupu/ThirdDopServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/content_preview/preview_calc.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/content_preview/preview_photo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/content_preview/preview_text.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/lib/jakarta.servlet-api-5.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/WEB-INF/my.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/images/brodsky.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/images/calcul_new.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/images/cat_photo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/images/cat_text.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/images/cat_who.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/images/ccalc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/images/kitten.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/images/stiiih.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/proba1/images/stik.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/orrg/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/ChatRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/orrg/ChatsId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/ChatsId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/orrg/MessageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/MessageEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/orrg/SessionCreatedListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orrg/SessionCreatedListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/already_have.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/already_have.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/chat_room.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/chat_room.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/id_chat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/id_chat.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/orrg/ChatRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/ChatRoom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/orrg/ChatsId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/ChatsId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/orrg/MessageEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/MessageEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/orrg/SessionCreatedListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orrg/SessionCreatedListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/already_have.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/already_have.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/chat_room.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/chat_room.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatRoom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatsId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/ChatsId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/MessageEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/MessageEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/SessionCreatedListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/classes/orrg/SessionCreatedListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw2/WEB-INF/id_chat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw2/WEB-INF/id_chat.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +83,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/1/proga 2/session-post-example",
+    "last_opened_file_path": "C:/Users/1/Desktop/proga_2course-task2",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
@@ -134,6 +91,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\1\proga 2\hw2\src\main\webapp\WEB-INF" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\1\proga 2\proba1\src\main\webapp\images" />
       <recent name="C:\Users\1\proga 2\proba1\src\main\webapp\WEB-INF\content_preview" />
@@ -271,7 +231,13 @@
       <workItem from="1664387293977" duration="1944000" />
       <workItem from="1664389322027" duration="2438000" />
       <workItem from="1664394763965" duration="985000" />
-      <workItem from="1664397736302" duration="4941000" />
+      <workItem from="1664397736302" duration="8094000" />
+      <workItem from="1664435167475" duration="669000" />
+      <workItem from="1664442498650" duration="1223000" />
+      <workItem from="1664478308799" duration="4465000" />
+      <workItem from="1664482791351" duration="5268000" />
+      <workItem from="1664528576710" duration="3186000" />
+      <workItem from="1664887776047" duration="31126000" />
     </task>
     <task id="LOCAL-00001" summary="hw1">
       <created>1663792952529</created>

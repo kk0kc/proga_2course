@@ -14,6 +14,6 @@
 <br>
 <br>
 <br>
-<center><h1>Sorry, chat room with this id is already exist :(</h1></center>
+<center><h1>Sorry, it is already exist :(</h1></center>
 </body>
 </html>
