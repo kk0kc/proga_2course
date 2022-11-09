@@ -36,6 +36,8 @@
 					</div>
 					<div class="text-center">
 						<button type="submit" class="btn btn-danger">Login</button>
+						<a href="/sign-up" class="btn btn-danger">SignUp</a>
+<%--						<button type="submit" class="btn btn-danger">SignUp</button>--%>
 					</div>
 				</form>
 			</div>
