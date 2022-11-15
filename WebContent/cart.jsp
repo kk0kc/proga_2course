@@ -4,17 +4,25 @@
 <%@page import="java.util.*"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@ page import="val.shop.DataBaseConnection.PostgresConnectionToDataBase" %>
+<%@ page import="val.shop.dao.CartDao" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%
 DecimalFormat dcf = new DecimalFormat("#.##");
 request.setAttribute("dcf", dcf);
 User auth = (User) request.getSession().getAttribute("auth");
+List<Cart> cartProduct = null;
+ArrayList<Cart> cart_list = null;
 if (auth != null) {
     request.setAttribute("person", auth);
+	CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
+	cartProduct = cartDao.userCart(auth.getId());
+	cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
+} else {
+	response.sendRedirect("login.jsp");
 }
-ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-List<Cart> cartProduct = null;
+
+//ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 if (cart_list != null) {
 	ProductDao pDao = new ProductDao(PostgresConnectionToDataBase.getConnection());
 	cartProduct = pDao.getCartProducts(cart_list);
@@ -44,12 +52,7 @@ font-size: 25px;
 
 	<div class="container my-3">
 		<div class="d-flex py-3"><h3>Total Price: $ ${(total>0)?dcf.format(total):0}
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3> 
-                        <a class="mx-3 btn btn-danger" href="cart-check-out">Check Out</a></div>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3><a class="mx-3 btn btn-danger" href="cart-check-out">Check Out</a></div>
 		<table class="table table-light" style='background-color:#FEE5E5;'>
 			<thead>
 				<tr>
@@ -73,7 +76,7 @@ font-size: 25px;
 						<form action="order-now" method="post" class="form-inline">
 						<input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
 							<div class="form-group d-flex justify-content-between">
-								<a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a> 
+								<a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a>
 								<input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly style='background-color:#FFF6FA;'> 
 								<a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
 							</div>

@@ -45,11 +45,14 @@ public class OrderNowServlet extends HttpServlet {
                 OrderDao orderDao = new OrderDao(PostgresConnectionToDataBase.getConnection());
                 boolean result = orderDao.insertOrder(orderModel);
                 if (result) {
-                    ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+                    CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
+                    ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
+//                    ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
                     if (cart_list != null) {
                         for (Cart c : cart_list) {
                             if (c.getId() == Integer.parseInt(productId)) {
-                                cart_list.remove(cart_list.indexOf(c));
+                                cartDao.cancelCart(c.getId());
+//                                cart_list.remove(cart_list.indexOf(c));
                                 break;
                             }
                         }

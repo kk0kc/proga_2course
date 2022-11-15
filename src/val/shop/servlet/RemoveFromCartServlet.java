@@ -10,7 +10,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import val.shop.DataBaseConnection.PostgresConnectionToDataBase;
+import val.shop.dao.CartDao;
 import val.shop.model.Cart;
+import val.shop.model.User;
 
 @WebServlet("/remove-from-cart")
 public class RemoveFromCartServlet extends HttpServlet {
@@ -18,24 +21,25 @@ public class RemoveFromCartServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		User auth = (User) request.getSession().getAttribute("auth");
 		response.setContentType("text/html;charset=UTF-8");
 		try (PrintWriter out = response.getWriter()) {
-			String bookId = request.getParameter("id");
-			if (bookId != null) {
-				ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+			String id =  request.getParameter("id");
+			if (id != null) {
+				CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
+				ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
 				if (cart_list != null) {
 					for (Cart c : cart_list) {
-						if (c.getId() == Integer.parseInt(bookId)) {
-							cart_list.remove(cart_list.indexOf(c));
-							break;
+						if (c.getId() == Integer.parseInt(id)) {
+							cartDao.cancelCart(c.getId());
+//							cart_list.remove(cart_list.indexOf(c));
 						}
 					}
 				}
-				response.sendRedirect("cart.jsp");
+//				response.sendRedirect("cart.jsp");
 
-			} else {
-				response.sendRedirect("cart.jsp");
 			}
+				response.sendRedirect("cart.jsp");
 
 		}
 	}

@@ -3,6 +3,7 @@
 <%@page import="val.shop.model.*"%>
 <%@page import="java.util.*"%>
 <%@ page import="val.shop.DataBaseConnection.PostgresConnectionToDataBase" %>
+<%@ page import="val.shop.dao.CartDao" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -10,13 +11,15 @@
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
     request.setAttribute("person", auth);
+	CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
+	ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
+	if (cart_list != null) {
+		request.setAttribute("cart_list", cart_list);
+	}
 }
 ProductDao pd = new ProductDao(PostgresConnectionToDataBase.getConnection());
 List<Product> products = pd.getAllProducts();
-ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-if (cart_list != null) {
-	request.setAttribute("cart_list", cart_list);
-}
+//ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 %>
 <!DOCTYPE html>
 <html>
@@ -43,8 +46,8 @@ if (cart_list != null) {
 						<h6 class="price">Price: $<%=p.getPrice() %></h6>
 						<h6 class="category">Category: <%=p.getCategory() %></h6>
 						<div class="mt-3 d-flex justify-content-between">
-							<a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Add to Cart</a> <a
-								class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
+							<a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Add to Cart</a>
+							<a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
 						</div>
 					</div>
 				</div>
@@ -52,7 +55,7 @@ if (cart_list != null) {
 			<%
 			}
 			} else {
-			out.println("There is no proucts");
+			System.out.println("There is no proucts");
 			}
 			%>
 

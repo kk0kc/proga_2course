@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import val.shop.DataBaseConnection.PostgresConnectionToDataBase;
+import val.shop.dao.CartDao;
 import val.shop.dao.OrderDao;
 import val.shop.model.*;
 
@@ -28,7 +29,9 @@ public class CheckOutServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date();
-			ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+//			ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+			CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
+			ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.selectAllCart();
 			User auth = (User) request.getSession().getAttribute("auth");
 			if(cart_list != null && auth!=null) {
 				for(Cart c:cart_list) {
@@ -40,7 +43,9 @@ public class CheckOutServlet extends HttpServlet {
 					
 					OrderDao oDao = new OrderDao(PostgresConnectionToDataBase.getConnection());
 					boolean result = oDao.insertOrder(order);
+					boolean result2 = cartDao.insertCart(c); //?
 					if(!result) break;
+					if(!result2) break; //?
 				}
 				cart_list.clear();
 				response.sendRedirect("orders.jsp");
