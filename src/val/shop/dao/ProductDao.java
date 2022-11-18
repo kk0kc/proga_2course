@@ -33,9 +33,10 @@ public class ProductDao {
                 row.setId(rs.getInt("id"));
                 row.setName(rs.getString("name"));
                 row.setCategory(rs.getString("category"));
-                row.setPrice(rs.getDouble("price"));
+                row.setYear(rs.getInt("year"));
+                row.setImdb(rs.getDouble("imdb"));
                 row.setImage(rs.getString("image"));
-
+                row.setGif(rs.getString("gif"));
                 book.add(row);
             }
 
@@ -61,8 +62,10 @@ public class ProductDao {
 	                row.setId(rs.getInt("id"));
 	                row.setName(rs.getString("name"));
 	                row.setCategory(rs.getString("category"));
-	                row.setPrice(rs.getDouble("price"));
+                    row.setYear(rs.getInt("year"));
+                    row.setImdb(rs.getDouble("imdb"));
 	                row.setImage(rs.getString("image"));
+                    row.setGif(rs.getString("gif"));
 	            }
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -110,8 +113,11 @@ public class ProductDao {
                         row.setId(rs.getInt("id"));
                         row.setName(rs.getString("name"));
                         row.setCategory(rs.getString("category"));
-                        row.setPrice(rs.getDouble("price")*item.getQuantity());
+                        row.setYear(rs.getInt("year"));
+                        row.setImdb(rs.getDouble("imdb"));
                         row.setQuantity(item.getQuantity());
+                        row.setImage(rs.getString("image"));
+                        row.setGif(rs.getString("gif"));
                         book.add(row);
                     }
 

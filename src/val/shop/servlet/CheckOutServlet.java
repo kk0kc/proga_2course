@@ -31,8 +31,9 @@ public class CheckOutServlet extends HttpServlet {
             Date date = new Date();
 //			ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
 			CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
-			ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.selectAllCart();
-			User auth = (User) request.getSession().getAttribute("auth");
+		User auth = (User) request.getSession().getAttribute("auth");
+			ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
+
 			if(cart_list != null && auth!=null) {
 				for(Cart c:cart_list) {
 					Order order = new Order();
@@ -44,10 +45,11 @@ public class CheckOutServlet extends HttpServlet {
 					OrderDao oDao = new OrderDao(PostgresConnectionToDataBase.getConnection());
 					boolean result = oDao.insertOrder(order);
 					boolean result2 = cartDao.insertCart(c); //?
+					cartDao.cancelCart(c.getId());
 					if(!result) break;
 					if(!result2) break; //?
 				}
-				cart_list.clear();
+
 				response.sendRedirect("orders.jsp");
 			}else {
 				if(auth==null) {

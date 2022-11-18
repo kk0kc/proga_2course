@@ -1,7 +1,6 @@
 package val.shop.dao;
 
 import val.shop.model.Cart;
-import val.shop.model.Order;
 import val.shop.model.Product;
 
 import java.sql.Connection;
@@ -57,9 +56,10 @@ public class CartDao {
                 Product product = productDao.getSingleProduct(pId);
                 cart.setCartId(rs.getInt("c_id"));
                 cart.setId(pId);
+                cart.setImage(product.getImage());
                 cart.setName(product.getName());
                 cart.setCategory(product.getCategory());
-                cart.setPrice(product.getPrice()*rs.getInt("o_quantity"));
+                cart.setImdb(product.getImdb()*rs.getInt("o_quantity"));
                 cart.setQuantity(rs.getInt("o_quantity"));
                 list.add(cart);
             }
@@ -85,7 +85,8 @@ public class CartDao {
                 cart.setId(pId);
                 cart.setName(product.getName());
                 cart.setCategory(product.getCategory());
-                cart.setPrice(product.getPrice()*rs.getInt("o_quantity"));
+                cart.setImdb(product.getImdb()*rs.getInt("o_quantity"));
+                cart.setImage(product.getImage());
                 cart.setQuantity(rs.getInt("o_quantity"));
                 list.add(cart);
             }

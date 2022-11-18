@@ -32,10 +32,7 @@ public class OrderNowServlet extends HttpServlet {
 
             if (auth != null) {
                 String productId = request.getParameter("id");
-                int productQuantity = Integer.parseInt(request.getParameter("quantity"));
-                if (productQuantity <= 0) {
-                	productQuantity = 1;
-                }
+                int productQuantity =0;
                 Order orderModel = new Order();
                 orderModel.setId(Integer.parseInt(productId));
                 orderModel.setUid(auth.getId());

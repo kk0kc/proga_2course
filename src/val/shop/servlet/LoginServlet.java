@@ -19,6 +19,11 @@ import val.shop.model.*;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("login.jsp").forward(request, response);
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
@@ -31,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 			if (user != null) {
 				request.getSession().setAttribute("auth", user);
 //				System.out.print("user logged in");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("/");
 			} else {
 				out.println("there is no user");
 			}

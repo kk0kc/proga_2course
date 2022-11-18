@@ -101,7 +101,7 @@ public class AddToCartServlet extends HttpServlet {
             }
             if(!exist) {
                 boolean result = cartDao.insertCart(cartModel);
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("/");
             }
 
         } else {

@@ -12,7 +12,8 @@ public class Product {
 	private int id;
 	private String name;
 	private String category;
-	private Double price;
+	private int year;
+	private Double imdb;
 	private String image;
-
+	private String gif;
 }

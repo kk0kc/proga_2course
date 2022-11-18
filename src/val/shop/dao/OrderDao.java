@@ -23,6 +23,23 @@ public class OrderDao {
 		this.con = con;
 	}
 
+
+    public void updateRate(int id, int rate) {
+        //boolean result = false;
+        try {
+            query = "update orders set o_quantity = ? where o_id = ?;";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, rate);
+            pst.setInt(2, id);
+            pst.execute();
+            //result = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.print(e.getMessage());
+        }
+        //return result;
+    }
+
 	public boolean insertOrder(Order model) {
         boolean result = false;
         try {
@@ -57,9 +74,10 @@ public class OrderDao {
                 order.setId(pId);
                 order.setName(product.getName());
                 order.setCategory(product.getCategory());
-                order.setPrice(product.getPrice()*rs.getInt("o_quantity"));
+                order.setImdb(product.getImdb()*rs.getInt("o_quantity"));
                 order.setQunatity(rs.getInt("o_quantity"));
                 order.setDate(rs.getString("o_date"));
+                order.setImage(product.getImage());
                 list.add(order);
             }
         } catch (Exception e) {
