@@ -59,6 +59,6 @@ public class SignUpServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("/user-login");
     }
 }

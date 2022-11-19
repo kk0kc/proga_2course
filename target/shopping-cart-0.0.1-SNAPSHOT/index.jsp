@@ -1,27 +1,6 @@
-
-<%@page import="val.shop.dao.ProductDao"%>
-<%@page import="val.shop.model.*"%>
-<%@page import="java.util.*"%>
-<%@ page import="val.shop.DataBaseConnection.PostgresConnectionToDataBase" %>
-<%@ page import="val.shop.dao.CartDao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
-<%
-User auth = (User) request.getSession().getAttribute("auth");
-//if (auth != null) {
-//    request.setAttribute("person", auth);
-//	CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
-//	ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
-//	if (cart_list != null) {
-//		request.setAttribute("cart_list", cart_list);
-//	}
-//}
-//ProductDao pd = new ProductDao(PostgresConnectionToDataBase.getConnection());
-//List<Product> products = pd.getAllProducts();
-//ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-%>
 <!DOCTYPE html>
 <html>
 <head>

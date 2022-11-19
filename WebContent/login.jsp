@@ -1,22 +1,5 @@
-<%@page import="val.shop.model.*"%>
-<%@page import="java.util.*"%>
-<%@ page import="val.shop.dao.CartDao" %>
-<%@ page import="val.shop.DataBaseConnection.PostgresConnectionToDataBase" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%
-	User auth = (User) request.getSession().getAttribute("auth");
-//	if (auth != null) {
-//		CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
-//		ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
-//		if (cart_list != null) {
-//			request.setAttribute("cart_list", cart_list);
-//		}
-//		response.sendRedirect("index.jsp");
-
-//	}
-//	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +25,6 @@
 					<div class="text-center">
 						<button type="submit" class="btn btn-danger">Login</button>
 						<a href="/sign-up" class="btn btn-danger">SignUp</a>
-<%--						<button type="submit" class="btn btn-danger">SignUp</button>--%>
 					</div>
 				</form>
 			</div>
@@ -52,6 +34,6 @@
            <br>
            <br>
 	<%@include file="/includes/footer.jsp"%>
-            <%@include file="/includes/html/foot.html"%>
+	<%@include file="/includes/html/foot.html"%>
 </body>
 </html>

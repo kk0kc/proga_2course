@@ -7,6 +7,8 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 
 
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,6 +23,15 @@ import val.shop.model.*;
 @WebServlet("/order-now")
 public class OrderNowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+    private OrderDao orderDao;
+    private CartDao cartDao;
+
+    @Override
+    public void init(ServletConfig config){
+        ServletContext servletContext = config.getServletContext();
+        orderDao = (OrderDao) servletContext.getAttribute("orderDao");
+        cartDao = (CartDao) servletContext.getAttribute("cartDao");
+    }
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
@@ -38,29 +49,25 @@ public class OrderNowServlet extends HttpServlet {
                 orderModel.setUid(auth.getId());
                 orderModel.setQunatity(productQuantity);
                 orderModel.setDate(formatter.format(date));
-
-                OrderDao orderDao = new OrderDao(PostgresConnectionToDataBase.getConnection());
                 boolean result = orderDao.insertOrder(orderModel);
                 if (result) {
-                    CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
                     ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
-//                    ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
                     if (cart_list != null) {
                         for (Cart c : cart_list) {
                             if (c.getId() == Integer.parseInt(productId)) {
                                 cartDao.cancelCart(c.getId());
-//                                cart_list.remove(cart_list.indexOf(c));
                                 break;
                             }
                         }
                     }
-                    response.sendRedirect("orders.jsp");
+                    response.sendRedirect("/orders");
                 } else {
                     out.println("order failed");
                 }
-            } else {
-                response.sendRedirect("login.jsp");
             }
+//            else {
+//                response.sendRedirect("login.jsp");
+//            }
 	}
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

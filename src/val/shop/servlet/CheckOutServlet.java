@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,6 +24,15 @@ import val.shop.model.*;
 @WebServlet("/cart-check-out")
 public class CheckOutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private OrderDao oDao;
+	private CartDao cartDao;
+
+	@Override
+	public void init(ServletConfig config){
+		ServletContext servletContext = config.getServletContext();
+		oDao = (OrderDao) servletContext.getAttribute("orderDao");
+		cartDao = (CartDao) servletContext.getAttribute("cartDao");
+	}
        
    
 	
@@ -29,8 +40,6 @@ public class CheckOutServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date();
-//			ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
-			CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
 		User auth = (User) request.getSession().getAttribute("auth");
 			ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
 
@@ -41,8 +50,6 @@ public class CheckOutServlet extends HttpServlet {
 					order.setUid(auth.getId());
 					order.setQunatity(c.getQuantity());
 					order.setDate(formatter.format(date));
-					
-					OrderDao oDao = new OrderDao(PostgresConnectionToDataBase.getConnection());
 					boolean result = oDao.insertOrder(order);
 					boolean result2 = cartDao.insertCart(c); //?
 					cartDao.cancelCart(c.getId());
@@ -50,20 +57,15 @@ public class CheckOutServlet extends HttpServlet {
 					if(!result2) break; //?
 				}
 
-				response.sendRedirect("orders.jsp");
+				response.sendRedirect("/orders");
 			}else {
-				if(auth==null) {
-					response.sendRedirect("login.jsp");
-				}
-				response.sendRedirect("cart.jsp");
+//				if(auth==null) {
+//					response.sendRedirect("login.jsp");
+//				}
+				response.sendRedirect("/cart");
 			}
-
 	}
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

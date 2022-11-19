@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,15 +18,13 @@ import jakarta.servlet.http.HttpSession;
 import val.shop.DataBaseConnection.PostgresConnectionToDataBase;
 import val.shop.dao.CartDao;
 import val.shop.dao.OrderDao;
+import val.shop.dao.UserDao;
 import val.shop.model.*;
 
 
 @WebServlet(name = "AddToCartServlet", urlPatterns = "/add-to-cart")
 public class AddToCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
 	
 //	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        response.setContentType("text/html;charset=UTF-8");
@@ -73,6 +73,16 @@ public class AddToCartServlet extends HttpServlet {
 //            response.sendRedirect("login.jsp");
 //        }
 //    }
+    private CartDao cartDao;
+    @Override
+    public void init(ServletConfig config)  {
+        ServletContext servletContext = config.getServletContext();
+        cartDao = (CartDao) servletContext.getAttribute("cartDao");
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -82,16 +92,11 @@ public class AddToCartServlet extends HttpServlet {
 
         if (auth != null) {
             String productId = request.getParameter("id");
-//            int productQuantity = Integer.parseInt(request.getParameter("quantity"));
-//            if (productQuantity <= 0) {
-                int productQuantity = 1;
-//            }
             boolean exist = false;
             Cart cartModel = new Cart();
             cartModel.setId(Integer.parseInt(productId));
             cartModel.setUid(auth.getId());
-            cartModel.setQuantity(productQuantity);
-            CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
+            cartModel.setQuantity(1);
             ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
             for(Cart c: cart_list) {
                 if (c.getId() == Integer.parseInt(productId)) {
@@ -104,9 +109,10 @@ public class AddToCartServlet extends HttpServlet {
                 response.sendRedirect("/");
             }
 
-        } else {
-            response.sendRedirect("login.jsp");
         }
+//        else {
+//            response.sendRedirect("login.jsp");
+//        }
     }
 
 }

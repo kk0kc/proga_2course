@@ -9,14 +9,14 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="cart.jsp">Cart <span class="badge badge-danger">${cart_list.size()}</span> </a></li>
-				<% if (auth != null) {%>
-				<li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/cart">Cart <span class="badge badge-danger">${cart_list.size()}</span> </a></li>
+<%--				<% if (auth != null) {%>--%>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/orders">Orders</a></li>
 				<li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
-				<%} else {%>
-				<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
-				<%}%>
+<%--				<%} else {%>--%>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/user-login">Login</a></li>
+<%--				<%}%>--%>
 			</ul>
 		</div>
 	</div>

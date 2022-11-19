@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="/resources/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/includes/css/style.css">
 </head>
 <body>
 <h1>Sign Up</h1>

@@ -1,36 +1,6 @@
-
-<%@page import="val.shop.dao.ProductDao"%>
-<%@page import="val.shop.model.*"%>
-<%@page import="java.util.*"%>
-<%@page import="java.text.DecimalFormat"%>
-<%@ page import="val.shop.DataBaseConnection.PostgresConnectionToDataBase" %>
-<%@ page import="val.shop.dao.CartDao" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%
-DecimalFormat dcf = new DecimalFormat("#.##");
-request.setAttribute("dcf", dcf);
-User auth = (User) request.getSession().getAttribute("auth");
-List<Cart> cartProduct = null;
-ArrayList<Cart> cart_list = null;
-if (auth != null) {
-    request.setAttribute("person", auth);
-	CartDao cartDao = new CartDao(PostgresConnectionToDataBase.getConnection());
-	cartProduct = cartDao.userCart(auth.getId());
-	cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
-} else {
-	response.sendRedirect("login.jsp");
-}
-
-//ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-if (cart_list != null) {
-	ProductDao pDao = new ProductDao(PostgresConnectionToDataBase.getConnection());
-	cartProduct = pDao.getCartProducts(cart_list);
-	double total = pDao.getTotalCartPrice(cart_list);
-	request.setAttribute("total", total);
-	request.setAttribute("cart_list", cart_list);
-}
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,31 +59,21 @@ font-size: 25px;
 				</tr>
 			</thead>
 			<tbody  >
-				<%
-				if (cart_list != null) {
-					for (Cart c : cartProduct) {
-				%>
+				<c:forEach var="cartProduct" items="${cartProduct}">
 				<tr>
-<%--					<td><img class="card-img-top" src="product-image/<%=c.getImage()%>"--%>
-<%--							 alt="Card image cap"></td>--%>
-<%--					<td><div class="movies-trailers">--%>
-						<td><a class="videofront" style="background-image: url('product-image/<%=c.getImage()%>'); ">
-							<video style=" height: auto; background-size: cover;" autoplay="" loop="" muted="" playsinline="" height="107" width="260" >
-								<source src="<%=c.getGif() %>" type="video/mp4">
-							</video></a>
-						</td>
-<%--						<video autoplay="" loop="" muted="" playsinline="">--%>
-<%--							<source src="https://media.giphy.com/media/P1xNu32vTu89wA2FdG/source.mp4" type="video/mp4">--%>
-<%--						</video>--%>
-					</div>
-<%--					</td>--%>
-					<td><%=c.getName()%></td>
-					<td><%=c.getCategory()%></td>
-					<td><%=c.getYear()%></td>
-					<td><%= dcf.format(c.getImdb())%></td>
+					<td>
+					<a class="videofront" style="background-image: url('product-image/${cartProduct.getImage()}'); " >
+					<video  style=" height: auto; background-size: cover;" autoplay="" loop="" muted="" playsinline="" height="180" width="254.9" >
+					<source src="${cartProduct.getGif()}" type="video/mp4">
+					</video></a>
+					</td>
+					<td><c:out value="${cartProduct.getName()}"/></td>
+					<td><c:out value="${cartProduct.getCategory()}"/></td>
+					<td><c:out value="${cartProduct.getYear()}"/></td>
+					<td><c:out value="${dcf.format(cartProduct.getImdb())}"/></td>
 					<td>
 						<form action="order-now" method="post" class="form-inline">
-						<input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
+						<input type="hidden" name="id" value="${cartProduct.getId()}" class="form-input">
 <%--							<div class="form-group d-flex justify-content-between">--%>
 <%--								<a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a>--%>
 <%--								<input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly style='background-color:#FFF6FA;'> --%>
@@ -122,15 +82,12 @@ font-size: 25px;
 							<button type="submit" style=" height:35px; width: 90px; border-radius: 15px;background-color:  #6184ff; border: 0px " class="btn btn-primary btn-sm">Viewed</button>
 						</form>
 					</td>
-					<td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-sm btn-danger" style="height:35px; width: 90px;border-radius: 15px;background-color:  #dcdcdc; border: 0px ">Remove</a></td>
+					<td><a href="remove-from-cart?id=${cartProduct.getId()}" class="btn btn-sm btn-danger" style="height:35px; width: 90px;border-radius: 15px;background-color:  #dcdcdc; border: 0px ">Remove</a></td>
 				</tr>
-
-				<%
-				}}%>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-
 	<%@include file="/includes/footer.jsp"%>
            <%@include file="/includes/html/foot.html"%>
 </body>
