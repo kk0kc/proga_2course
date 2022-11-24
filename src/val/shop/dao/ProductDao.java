@@ -18,6 +18,25 @@ public class ProductDao {
 		super();
 		this.con = con;
 	}
+
+    public void createProductTab(){
+        query = "create table if not exists products" +
+                "(" +
+                "id bigserial NOT NULL," +
+                "name varchar(450) NOT NULL," +
+                "category varchar(450) NOT NULL," +
+                "year int NOT NULL," +
+                "imdb float NOT NULL," +
+                "image varchar(450) NOT NULL," +
+                "gif varchar(450) NOT NULL," +
+                "PRIMARY KEY (id));";
+        try {
+            Statement statement = con.createStatement();
+            statement.execute(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 	
 	
 	public List<Product> getAllProducts() {

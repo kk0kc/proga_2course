@@ -47,7 +47,8 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("auth", user);
 			response.sendRedirect("/adminka");
 		} else {
-			request.getRequestDispatcher("error_log.jsp").forward(request, response);
+			response.sendRedirect("/error-log");
+//			request.getRequestDispatcher("error_log.jsp").forward(request, response);
 		}
 	}
 }

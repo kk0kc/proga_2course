@@ -40,6 +40,7 @@ public class AuthenticationFilter implements Filter {
         boolean isRequestOnAuthPage = request.getRequestURI().equals("/sign-up") ||
                 request.getRequestURI().equals("/user-login");
         boolean isRequestOnHomePage = request.getRequestURI().equals("/");
+        boolean isRequestErrorLog = request.getRequestURI().equals("/error-log");
 
         // если сессия есть
         if (sessionExists) {
@@ -57,6 +58,9 @@ public class AuthenticationFilter implements Filter {
             response.sendRedirect("/");
         } else if (!isAuthenticated && isRequestOnHomePage){
             // если пользователь не аутенцицицирован и запрашивает другие страницы
+            filterChain.doFilter(request, response);
+        }
+        else if (!isAuthenticated && isRequestErrorLog){
             filterChain.doFilter(request, response);
         }
         else {

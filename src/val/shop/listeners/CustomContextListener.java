@@ -26,6 +26,10 @@ public class CustomContextListener implements ServletContextListener {
         ProductDao productDao = new ProductDao(connection);
         UserDao userDao = new UserDao(connection);
         CartDao cartDao = new CartDao(connection);
+        userDao.createUsersTab();
+        productDao.createProductTab();
+        orderDao.createOrderTab();
+        cartDao.createCartTab();
         UsersRepository usersRepository = new UsersRepositoryImpl(new PostgresConnectionToDataBase());
         PasswordEncoder passwordEncoder = new PasswordEncoderImpl();
         Validator validator = new ValidatorImpl(usersRepository);

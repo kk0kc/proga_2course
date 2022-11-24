@@ -1,9 +1,6 @@
 package val.shop.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.*;
 
 import val.shop.model.*;
@@ -22,6 +19,24 @@ public class OrderDao {
 		super();
 		this.con = con;
 	}
+
+    public void createOrderTab(){
+        query = "create table if not exists orders" +
+                "(" +
+                "o_id bigserial NOT NULL," +
+                "p_id int NOT NULL," +
+                "u_id int NOT NULL," +
+                "o_quantity int," +
+                "o_date varchar(450) NOT NULL," +
+                "PRIMARY KEY (o_id));";
+        try {
+            Statement statement = con.createStatement();
+            statement.execute(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 
     public void updateRate(int id, int rate) {

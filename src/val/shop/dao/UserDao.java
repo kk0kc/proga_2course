@@ -14,6 +14,25 @@ public class UserDao {
 		this.con = con;
 	}
 
+    public void createUsersTab(){
+        query = "create table if not exists users" +
+                "(" +
+                "id bigserial NOT NULL," +
+                "name varchar(250) NOT NULL," +
+                "email varchar(250) NOT NULL," +
+                "password varchar(250) NOT NULL," +
+                "status varchar(50) NOT NULL," +
+                "PRIMARY KEY (id)," +
+                "UNIQUE (email));";
+        try {
+            Statement statement = con.createStatement();
+            statement.execute(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public User userLogin(String email, String password, String status) {
         User user = null;
         try {

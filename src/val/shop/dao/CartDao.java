@@ -3,10 +3,7 @@ package val.shop.dao;
 import val.shop.model.Cart;
 import val.shop.model.Product;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +21,22 @@ public class CartDao {
 		super();
 		this.con = con;
 	}
+
+    public void createCartTab(){
+        query = "create table if not exists cart" +
+                "(" +
+                "c_id bigserial NOT NULL," +
+                "p_id int NOT NULL," +
+                "u_id int NOT NULL," +
+                "o_quantity int," +
+                "PRIMARY KEY (o_id));";
+        try {
+            Statement statement = con.createStatement();
+            statement.execute(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 	public boolean insertCart(Cart model) {
         boolean result = false;

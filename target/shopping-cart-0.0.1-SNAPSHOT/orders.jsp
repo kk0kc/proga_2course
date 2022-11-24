@@ -36,7 +36,7 @@
 									<input hidden name="idor" value="${orders.getOrderId()}">
 									<input class="rating" type="submit" value="Save" />
 								</form>
-	<div style="margin-left: 15px">
+					<div style="margin-left: 15px">
 							<c:if test="${orders.getQuantity() == -1}">
 								<c:forEach begin="1" end="5" varStatus="loop">
 									<i class="my-star star-1" data-star="1" style="color: #bebebe; font-size:2em" ></i>
@@ -50,7 +50,7 @@
 									<i class="my-star star-1" data-star="1" style="color: #bebebe; font-size:2em" ></i>
 								</c:forEach>
 							</c:if>
-	</div>
+						</div>
 
 						</td>
 						<td><a href="cancel-order?id=${orders.getOrderId()}" class="btn btn-sm btn-danger" style="height:35px; width: 90px;border-radius: 15px;background-color:  #dcdcdc; border: 0px ">Remove</a></td>
