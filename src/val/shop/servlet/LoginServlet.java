@@ -31,15 +31,22 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
 		String email = request.getParameter("login-email");
 		String password = request.getParameter("login-password");
-		User user = udao.userLogin(email, password);
-		if (user != null) {
+		String status;
+		if (request.getParameter("status") != null) {
+			status = "admin";
+		} else {
+			status = "user";
+		}
+		User user = udao.userLogin(email, password, status);
+		if (user != null && user.getStatus().equals("user")) {
 			request.getSession().setAttribute("auth", user);
 			response.sendRedirect("/");
-		}
-		else {
+		} else if (user != null && user.getStatus().equals("admin")) {
+			request.getSession().setAttribute("auth", user);
+			response.sendRedirect("/adminka");
+		} else {
 			request.getRequestDispatcher("error_log.jsp").forward(request, response);
 		}
 	}

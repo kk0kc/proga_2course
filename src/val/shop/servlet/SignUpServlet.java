@@ -41,6 +41,7 @@ public class SignUpServlet extends HttpServlet {
                     .name(request.getParameter("name"))
                     .email(request.getParameter("email"))
                     .password(request.getParameter("password"))
+                    .status("user")
                     .build();
         } catch (NumberFormatException e) {
             Set<ErrorEntity> errors = new HashSet<>();

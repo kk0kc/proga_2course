@@ -22,32 +22,19 @@ public class CustomContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         ServletContext servletContext = servletContextEvent.getServletContext();
         Connection connection = PostgresConnectionToDataBase.getConnection();
-
-//        FilesRepository filesRepository = new FilesRepositoryImpl(dataSource);
         OrderDao orderDao = new OrderDao(connection);
         ProductDao productDao = new ProductDao(connection);
         UserDao userDao = new UserDao(connection);
         CartDao cartDao = new CartDao(connection);
         UsersRepository usersRepository = new UsersRepositoryImpl(new PostgresConnectionToDataBase());
-//        FilesService filesService = new FilesServiceImpl(IMAGES_STORAGE_PATH, filesRepository, usersRepository);
         PasswordEncoder passwordEncoder = new PasswordEncoderImpl();
-//        SignInService signInService = new SignInServiceImpl(usersRepository, passwordEncoder);
         Validator validator = new ValidatorImpl(usersRepository);
         SignUpService signUpService = new SignUpServiceImpl(usersRepository, passwordEncoder, validator);
-//        PostsRepository postsRepository = new PostsRepositoryImpl(dataSource);
-//        PostsService postsService = new PostsServiceImpl(postsRepository);
-//        ObjectMapper objectMapper = new ObjectMapper();
-
-//        servletContext.setAttribute("filesService", filesService);
-//        servletContext.setAttribute("signInService", signInService);
         servletContext.setAttribute("productDao", productDao);
         servletContext.setAttribute("orderDao", orderDao);
         servletContext.setAttribute("cartDao", cartDao);
         servletContext.setAttribute("userDao", userDao);
         servletContext.setAttribute("signUpService", signUpService);
-//        servletContext.setAttribute("postsService", postsService);
-//        servletContext.setAttribute("passwordEncoder", passwordEncoder);
-//        servletContext.setAttribute("objectMapper", objectMapper);
     }
 
     @Override

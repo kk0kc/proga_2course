@@ -130,4 +130,37 @@ public class ProductDao {
         }
         return book;
     }
+
+    public boolean insertNewProduct(Product model) {
+        boolean result = false;
+        try {
+            query = "insert into products (name, category, year, imdb, image, gif) values(?,?,?,?,?,?)";
+            pst = this.con.prepareStatement(query);
+            pst.setString(1, model.getName());
+            pst.setString(2, model.getCategory());
+            pst.setInt(3, model.getYear());
+            pst.setDouble(4, model.getImdb());
+            pst.setString(5, model.getImage());
+            pst.setString(6, model.getGif());
+            pst.executeUpdate();
+            result = true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
+    public void removeProduct(int id) {
+        //boolean result = false;
+        try {
+            query = "delete from products where id=?";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, id);
+            pst.execute();
+            //result = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.print(e.getMessage());
+        }
+        //return result;
+    }
 }

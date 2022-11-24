@@ -16,12 +16,7 @@
 	<div class="container" style="background-color: #eaeaea"  >
 		<div class="card-header my-3 text-center" style='background-color:#eaeaea; '><h3>Time to choose!</h3></div>
 		<div class="row" >
-<%--			<c:set var="c" value="${requestScope.products}"/>--%>
 			<c:forEach var="products" items="${products}">
-<%--			<%--%>
-<%--			if (!products.isEmpty()) {--%>
-<%--				for (Product p : products) {--%>
-<%--			%>--%>
 			<div class="col-md-3 my-3">
 
 				<div class="card w-100" style=" border-bottom-left-radius: 7px; border-bottom-right-radius: 30%; border: 0px">
@@ -31,12 +26,8 @@
 					</video></a>
 					<div class="card-body" style='background-color:#ffffff; border-bottom-left-radius: 7px; border-bottom-right-radius: 30%'>
 						<h6 class="card-title"><c:out value="${products.getName()}"/></h6><br>
-<%--						<h6 class="card-title"><%=p.getName() %></h6><br>--%>
-<%--						<h7 class="imdb">IMDb <%=p.getImdb() %></h7><br>--%>
 						IMDb: <h7 class="imdb"><c:out value="${products.getImdb()}"/></h7><br>
-<%--						<h7 class="year">Year <%=p.getYear() %></h7><br>--%>
 						Year: <h7 class="year"><c:out value="${products.getYear()}"/></h7><br>
-<%--						<h7 class="category">Category: <%=p.getCategory() %></h7>--%>
 						Genre: <h7 class="category"><c:out value="${products.getCategory()}"/></h7>
 						<div class="mt-3 d-flex justify-content-between" >
 							<a class="btn btn-dark" style="border-radius: 15px; background-color: #6184ff; border: 0px; " href="add-to-cart?id=${products.getId()}">See later</a>
@@ -46,13 +37,6 @@
 				</div>
 			</div>
 			</c:forEach>
-<%--			<%--%>
-<%--//			}--%>
-<%--			} else {--%>
-<%--			System.out.println("There is no proucts");--%>
-<%--			}--%>
-<%--			%>--%>
-
 		</div>
 	</div>
 

@@ -6,22 +6,8 @@
 <head>
 <%@include file="/includes/head.jsp"%>
 <title>Shopping Cart</title>
-<style type="text/css">
-
-.table tbody td{
-	border-width: 15px;
-	border-color: #eaeaea;
-vertical-align: middle;
-}
-.table thead th{
-	border-width: 0px;
-}
-.btn-incre, .btn-decre{
-box-shadow: none;
-font-size: 25px;
-}
-</style>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/includes/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/includes/css/list.css">
 </head>
 <body style='background-color:#eaeaea;'>
 	<%@include file="/includes/navbar.jsp"%>
@@ -47,10 +33,6 @@ font-size: 25px;
 				<c:forEach var="cartProduct" items="${cartProduct}">
 				<tr>
 					<td>
-<%--					<a class="videofront" style="background-image: url('includes/product-image/${cartProduct.getImage()}'); " >--%>
-<%--					<video  style="" autoplay="" loop="" muted="" playsinline="" height="150" width="254.9" >--%>
-<%--					<source src="${cartProduct.getGif()}" type="video/mp4">--%>
-<%--					</video></a>--%>
 						<img src="includes/product-image/${cartProduct.getImage()}" height="150" width="270">
 					</td>
 					<td><c:out value="${cartProduct.getName()}"/></td>

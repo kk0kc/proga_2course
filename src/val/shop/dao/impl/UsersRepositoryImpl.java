@@ -10,8 +10,8 @@ import java.util.Optional;
 
 public class UsersRepositoryImpl implements UsersRepository {
 
-    private final static String SQL_INSERT = "insert into users(name, email,password) " +
-            "values (?, ?, ?)";
+    private final static String SQL_INSERT = "insert into users(name, email,password, status) " +
+            "values (?, ?, ?, ?)";
     private final static String SQL_SELECT_BY_EMAIL = "select * from users where email = ?";
 
 
@@ -28,7 +28,6 @@ public class UsersRepositoryImpl implements UsersRepository {
             return Optional.of(new User());
         }
         return Optional.empty();
-
     }
 
 
@@ -40,6 +39,7 @@ public class UsersRepositoryImpl implements UsersRepository {
             statement.setString(1, item.getName());
             statement.setString(3, item.getPassword());
             statement.setString(2, item.getEmail());
+            statement.setString(4, item.getStatus());
             statement.execute();
         }
         return item;

@@ -29,6 +29,10 @@
                             <input type="password" name="login-password" class="form-control" placeholder="Password">
                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         </div><br>
+                        <div>
+                            <input type="checkbox" id="status" name="status">
+                            <label for="status">Admin</label>
+                        </div>
                         <div class="form-group">
                             <button type="submit"  class="form-control btn btn-primary submit px-3">Login</button><br><br>
                             <a href="/sign-up"  class="form-control btn btn-primary submit px-3">SignUp</a>

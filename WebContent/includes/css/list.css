@@ -1,0 +1,33 @@
+.my-star::before{
+    content:"\002605";
+}
+.my-star{
+    font-style: unset !important;
+}
+.is-active{
+    color: #f2ff54;
+}
+.my-star:not(.is-active):hover{
+    color: #f2ff54;
+}
+
+
+.table tbody td{
+    border-width: 15px;
+    border-color: #eaeaea;
+    vertical-align: middle;
+}
+.table thead th{
+    border-width: 0px;
+}
+.btn-incre, .btn-decre{
+    box-shadow: none;
+    font-size: 25px;
+}
+.rating {
+    border-radius: 15px;
+    background-color: #6184ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;}

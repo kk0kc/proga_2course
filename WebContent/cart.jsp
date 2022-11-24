@@ -6,22 +6,8 @@
 <head>
 <%@include file="/includes/head.jsp"%>
 <title>Shopping Cart</title>
-<style type="text/css">
-
-.table tbody td{
-	border-width: 15px;
-	border-color: #eaeaea;
-vertical-align: middle;
-}
-.table thead th{
-	border-width: 0px;
-}
-.btn-incre, .btn-decre{
-box-shadow: none;
-font-size: 25px;
-}
-</style>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/includes/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/includes/css/list.css">
 </head>
 <body style='background-color:#eaeaea;'>
 	<%@include file="/includes/navbar.jsp"%>
