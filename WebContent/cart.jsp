@@ -47,10 +47,6 @@ font-size: 25px;
 				<c:forEach var="cartProduct" items="${cartProduct}">
 				<tr>
 					<td>
-<%--					<a class="videofront" style="background-image: url('includes/product-image/${cartProduct.getImage()}'); " >--%>
-<%--					<video  style="" autoplay="" loop="" muted="" playsinline="" height="150" width="254.9" >--%>
-<%--					<source src="${cartProduct.getGif()}" type="video/mp4">--%>
-<%--					</video></a>--%>
 						<img src="includes/product-image/${cartProduct.getImage()}" height="150" width="270">
 					</td>
 					<td><c:out value="${cartProduct.getName()}"/></td>

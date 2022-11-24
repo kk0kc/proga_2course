@@ -51,21 +51,6 @@ public class AuthenticationFilter implements Filter {
             isAuthenticated = session.getAttribute("auth") != null;
         }
 
-//        if(isAuthenticated == false) {
-//            Optional<Cookie> optionalTokenCookie = Arrays.stream(request.getCookies() == null ? new Cookie[] {} : request.getCookies())
-//                    .filter(item -> item.getName().equals("token"))
-//                    .findFirst();
-//            if(optionalTokenCookie.isPresent()) {
-//                String token = optionalTokenCookie.get().getValue();
-//                try {
-//                    UserDto userDto = signInService.signIn(token);
-//                    session = request.getSession(true);
-//                    session.setAttribute("user", userDto);
-//                    isAuthenticated = true;
-//                } catch (ValidationException ignored) {}
-//            }
-//        }
-
         // если авторизован и запрашивает не открытую страницу или если не авторизован и запрашивает открытую
         if (isAuthenticated && !isRequestOnAuthPage || !isAuthenticated && isRequestOnAuthPage) {
             // отдаем ему то, что он хочет

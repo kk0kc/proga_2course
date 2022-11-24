@@ -25,7 +25,6 @@ public class SignUpServiceImpl implements SignUpService {
 
     @Override
     public void signUp(UserForm form) throws SQLException {
-        // passwordEncoder.matches("123123", "HASH");
         Optional<ErrorEntity> optionalError = validator.validateRegistration(form);
         if(optionalError.isPresent()) {
             throw new ValidationException(optionalError.get());
