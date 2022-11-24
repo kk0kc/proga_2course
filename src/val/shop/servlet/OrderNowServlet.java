@@ -2,7 +2,6 @@ package val.shop.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
@@ -15,7 +14,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import val.shop.DataBaseConnection.PostgresConnectionToDataBase;
 import val.shop.dao.*;
 import val.shop.model.*;
 
@@ -43,11 +41,10 @@ public class OrderNowServlet extends HttpServlet {
 
             if (auth != null) {
                 String productId = request.getParameter("id");
-                int productQuantity =0;
                 Order orderModel = new Order();
                 orderModel.setId(Integer.parseInt(productId));
                 orderModel.setUid(auth.getId());
-                orderModel.setQunatity(productQuantity);
+                orderModel.setQuantity(-1);
                 orderModel.setDate(formatter.format(date));
                 boolean result = orderDao.insertOrder(orderModel);
                 if (result) {

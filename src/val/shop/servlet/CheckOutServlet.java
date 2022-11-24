@@ -2,7 +2,6 @@ package val.shop.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,7 +14,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import val.shop.DataBaseConnection.PostgresConnectionToDataBase;
 import val.shop.dao.CartDao;
 import val.shop.dao.OrderDao;
 import val.shop.model.*;
@@ -48,7 +46,7 @@ public class CheckOutServlet extends HttpServlet {
 					Order order = new Order();
 					order.setId(c.getId());
 					order.setUid(auth.getId());
-					order.setQunatity(c.getQuantity());
+					order.setQuantity(c.getQuantity());
 					order.setDate(formatter.format(date));
 					boolean result = oDao.insertOrder(order);
 					boolean result2 = cartDao.insertCart(c); //?

@@ -1,20 +1,11 @@
 package val.shop.dao.impl;
 
-//import org.springframework.dao.EmptyResultDataAccessException;
-//import org.springframework.jdbc.core.JdbcTemplate;
-//import org.springframework.jdbc.core.RowMapper;
-//import org.springframework.jdbc.support.GeneratedKeyHolder;
-//import org.springframework.jdbc.support.KeyHolder;
 import val.shop.DataBaseConnection.PostgresConnectionToDataBase;
 import val.shop.dao.UsersRepository;
 import val.shop.model.User;
-
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Types;
-import java.util.List;
 import java.util.Optional;
 
 public class UsersRepositoryImpl implements UsersRepository {

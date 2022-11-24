@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 @WebServlet("/add-rate")
 public class AddRateServlet extends HttpServlet {
@@ -23,21 +24,20 @@ public class AddRateServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		request.getRequestDispatcher("orders.jsp").forward(request,response);
 
-		String id = request.getParameter("id");
-		String rate = request.getParameter("output");
-		String rate2 = request.getParameter("rate");
-		Enumeration param = request.getParameterNames();
+		String id = request.getParameter("idor");
+		String rate = request.getParameter("rate");
+//		Enumeration param = request.getParameterNames();
 		if(id != null) {
 			OrderDao orderDao = new OrderDao(PostgresConnectionToDataBase.getConnection());
 			User auth = (User) request.getSession().getAttribute("auth");
-			ArrayList<Order> order_list = (ArrayList<Order>) orderDao.userOrders(auth.getId());
+			List<Order> order_list = orderDao.userOrders(auth.getId());
 			for (Order o : order_list) {
 				if (o.getOrderId() == Integer.parseInt(id)) {
 					orderDao.updateRate(Integer.parseInt(id), Integer.parseInt(rate));
 				}
 			}
 		}
-		response.sendRedirect("orders.jsp");
+		response.sendRedirect("/orders");
 	}
 
 //	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -55,7 +55,7 @@ public class AddRateServlet extends HttpServlet {
 //					}
 //				}
 //			}
-//			response.sendRedirect("orders.jsp");
+//			response.sendRedirect("/orders");
 //
 //	}
 

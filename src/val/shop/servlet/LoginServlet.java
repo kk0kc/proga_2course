@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("/");
 		}
 		else {
-			out.println("there is no user");
+			request.getRequestDispatcher("error_log.jsp").forward(request, response);
 		}
 	}
 }

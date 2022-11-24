@@ -40,6 +40,21 @@ public class OrderDao {
         //return result;
     }
 
+    public List<Order> filterRate(int id) {
+        List<Order> list = new ArrayList<>();
+        try {
+            query = "select * from orders where u_id=? order by orders.o_quantity desc";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, id);
+            pst.execute();
+            //result = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.print(e.getMessage());
+        }
+        return list;
+    }
+
 	public boolean insertOrder(Order model) {
         boolean result = false;
         try {
@@ -47,7 +62,7 @@ public class OrderDao {
             pst = this.con.prepareStatement(query);
             pst.setInt(1, model.getId());
             pst.setInt(2, model.getUid());
-            pst.setInt(3, model.getQunatity());
+            pst.setInt(3, model.getQuantity());
             pst.setString(4, model.getDate());
             pst.executeUpdate();
             result = true;
@@ -75,7 +90,7 @@ public class OrderDao {
                 order.setName(product.getName());
                 order.setCategory(product.getCategory());
                 order.setImdb(product.getImdb()*rs.getInt("o_quantity"));
-                order.setQunatity(rs.getInt("o_quantity"));
+                order.setQuantity(rs.getInt("o_quantity"));
                 order.setDate(rs.getString("o_date"));
                 order.setImage(product.getImage());
                 list.add(order);

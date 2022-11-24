@@ -6,19 +6,19 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="product-image/chainsawman.png" alt="Arrival">
+      <img class="d-block w-100" src="includes/product-image/chainsawman.png" alt="Arrival">
       
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="product-image/killua.png" alt="Men Watch">
+      <img class="d-block w-100" src="includes/product-image/killua.png" alt="Men Watch">
 
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="product-image/yourname.png" alt="Mens">
+      <img class="d-block w-100" src="includes/product-image/yourname.png" alt="Mens">
       
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="product-image/kakashi.png" alt="Jeans">
+      <img class="d-block w-100" src="includes/product-image/kakashi.png" alt="Jeans">
       
     </div>
 

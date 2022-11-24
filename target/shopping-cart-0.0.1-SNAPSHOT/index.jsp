@@ -5,28 +5,7 @@
 <html>
 <head>
 <%@include file="/includes/head.jsp"%>
-	<style type="text/css" >
-		.videofront {display:block;
-			/*width: 100%;*/
-			/*height: 100%;*/
-			/*width:250px;*/
-			/*height:197px;*/
-				height: 143.9px;
-			background-size: cover;
-
-			background-image:url(product-image/tokyo.png);
-		}
-		a.videofront video {
-			visibility:hidden;
-		}
-		a.videofront:hover {
-			background:none;
-		}
-		a.videofront:hover video {
-			visibility:visible;
-
-		}
-	</style>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/includes/css/style.css">
 
 <title>AnWatch</title>
 </head>
@@ -46,7 +25,7 @@
 			<div class="col-md-3 my-3">
 
 				<div class="card w-100" style=" border-bottom-left-radius: 7px; border-bottom-right-radius: 30%; border: 0px">
-					<a class="videofront" style="background-image: url('product-image/${products.getImage()}'); " >
+					<a class="videofront" style="background-image: url('includes/product-image/${products.getImage()}'); " >
 					<video  style=" height: auto; background-size: cover;" autoplay="" loop="" muted="" playsinline="" height="180" width="254.9" >
 						<source src="${products.getGif()}" type="video/mp4">
 					</video></a>

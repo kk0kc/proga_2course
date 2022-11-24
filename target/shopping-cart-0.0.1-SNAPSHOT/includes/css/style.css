@@ -1,1 +1,21 @@
-#footer { height: 100px; }
+.videofront {
+    display:block;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*width:250px;*/
+    /*height:197px;*/
+    height: 143.9px;
+    background-size: cover;
+
+    background-image:url(includes/product-image/tokyo.png);
+}
+a.videofront video {
+    visibility:hidden;
+}
+a.videofront:hover {
+    background:none;
+}
+a.videofront:hover video {
+    visibility:visible;
+
+}

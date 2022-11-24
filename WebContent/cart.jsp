@@ -21,35 +21,20 @@ box-shadow: none;
 font-size: 25px;
 }
 </style>
-	<style type="text/css" >
-		.videofront {display:block;
-			width:260px;
-			height:146px;
-			background-image:url(product-image/tokyo.png);
-		}
-		a.videofront video {
-			visibility:hidden;
-		}
-		a.videofront:hover {
-			background:none;
-		}
-		a.videofront:hover video {
-			visibility:visible;
-			border:0;
-		}
-	</style>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/includes/css/style.css">
 </head>
 <body style='background-color:#eaeaea;'>
 	<%@include file="/includes/navbar.jsp"%>
 
 	<div class="container my-3">
-		<div class="d-flex py-3">
+		<div class="d-flex py-3" style="margin-left: 950px">
 <%--			<h3>Total Price: $ ${(total>0)?dcf.format(total):0}</h3>--%>
-			<a class="mx-3 btn btn-danger" href="cart-check-out">Check Out</a></div>
-		<table class="table table-hover" style='background-color:#ffffff;'>
-			<thead >
-				<tr>
-					<th style="border-width: 0px" scope="col"></th>
+			<a href="cart-check-out" class="mx-3 btn btn-danger" style=" height:35px; width: 90px;border-radius: 15px;background-color:  #6184ff; border: 0px ">Check all</a>
+		</div>
+		<table class="table table-hover" style='background-color:#ffffff; border-radius: 20px'>
+			<thead>
+				<tr style="border-radius: 20px">
+					<th style="border-width: 0px;" scope="col"></th>
 					<th scope="col">Name</th>
 					<th scope="col">Category</th>
 					<th scope="col">Year</th>
@@ -62,10 +47,11 @@ font-size: 25px;
 				<c:forEach var="cartProduct" items="${cartProduct}">
 				<tr>
 					<td>
-					<a class="videofront" style="background-image: url('product-image/${cartProduct.getImage()}'); " >
-					<video  style=" height: auto; background-size: cover;" autoplay="" loop="" muted="" playsinline="" height="180" width="254.9" >
-					<source src="${cartProduct.getGif()}" type="video/mp4">
-					</video></a>
+<%--					<a class="videofront" style="background-image: url('includes/product-image/${cartProduct.getImage()}'); " >--%>
+<%--					<video  style="" autoplay="" loop="" muted="" playsinline="" height="150" width="254.9" >--%>
+<%--					<source src="${cartProduct.getGif()}" type="video/mp4">--%>
+<%--					</video></a>--%>
+						<img src="includes/product-image/${cartProduct.getImage()}" height="150" width="270">
 					</td>
 					<td><c:out value="${cartProduct.getName()}"/></td>
 					<td><c:out value="${cartProduct.getCategory()}"/></td>

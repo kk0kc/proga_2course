@@ -25,7 +25,7 @@ public class CartServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config){
         ServletContext servletContext = config.getServletContext();
-        pDao = (ProductDao)  servletContext.getAttribute("productDao");
+        pDao = (ProductDao) servletContext.getAttribute("productDao");
         cartDao = (CartDao) servletContext.getAttribute("cartDao");
     }
     @Override

@@ -10,7 +10,7 @@ import lombok.*;
 public class Order extends Product{
 	private int orderId;
 	private int uid;
-	private int qunatity;
+	private int quantity;
 	private String date;
 
 }

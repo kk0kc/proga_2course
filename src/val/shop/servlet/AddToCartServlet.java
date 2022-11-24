@@ -96,7 +96,7 @@ public class AddToCartServlet extends HttpServlet {
             Cart cartModel = new Cart();
             cartModel.setId(Integer.parseInt(productId));
             cartModel.setUid(auth.getId());
-            cartModel.setQuantity(1);
+            cartModel.setQuantity(-1);
             ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
             for(Cart c: cart_list) {
                 if (c.getId() == Integer.parseInt(productId)) {
