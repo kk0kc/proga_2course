@@ -20,7 +20,6 @@ import val.shop.model.*;
 
 @WebServlet("/order-now")
 public class OrderNowServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
     private OrderDao orderDao;
     private CartDao cartDao;
 
@@ -36,7 +35,6 @@ public class OrderNowServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date();
-
             User auth = (User) request.getSession().getAttribute("auth");
 
             if (auth != null) {
@@ -62,13 +60,9 @@ public class OrderNowServlet extends HttpServlet {
                     out.println("order failed");
                 }
             }
-//            else {
-//                response.sendRedirect("login.jsp");
-//            }
 	}
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }

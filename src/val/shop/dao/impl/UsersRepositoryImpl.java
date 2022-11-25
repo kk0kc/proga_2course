@@ -12,23 +12,23 @@ public class UsersRepositoryImpl implements UsersRepository {
 
     private final static String SQL_INSERT = "insert into users(name, email,password, status) " +
             "values (?, ?, ?, ?)";
-    private final static String SQL_SELECT_BY_EMAIL = "select * from users where email = ?";
+//    private final static String SQL_SELECT_BY_EMAIL = "select * from users where email = ?";
 
 
     public UsersRepositoryImpl(PostgresConnectionToDataBase connection) {
         connection.getConnection();;
     }
 //
-    @Override
-    public Optional<User> findByEmail(String email) throws SQLException {
-        Connection connection = PostgresConnectionToDataBase.getConnection();
-        PreparedStatement statement=connection.prepareStatement(SQL_SELECT_BY_EMAIL);
-        statement.setString(1, email);
-        if (statement == null){
-            return Optional.of(new User());
-        }
-        return Optional.empty();
-    }
+//    @Override
+//    public Optional<User> findByEmail(String email) throws SQLException {
+//        Connection connection = PostgresConnectionToDataBase.getConnection();
+//        PreparedStatement statement=connection.prepareStatement(SQL_SELECT_BY_EMAIL);
+//        statement.setString(1, email);
+//        if (statement == null){
+//            return Optional.of(new User());
+//        }
+//        return Optional.empty();
+//    }
 
 
     @Override
@@ -44,9 +44,4 @@ public class UsersRepositoryImpl implements UsersRepository {
         }
         return item;
     }
-
-
-    // TODO: Implement
-    @Override
-    public void delete(Long id) {}
 }

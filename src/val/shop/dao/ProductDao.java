@@ -8,7 +8,6 @@ import val.shop.model.Product;
 
 public class ProductDao {
 	private Connection con;
-
 	private String query;
     private PreparedStatement pst;
     private ResultSet rs;
@@ -106,7 +105,6 @@ public class ProductDao {
                     while (rs.next()) {
                         sum+=rs.getDouble("price")*item.getQuantity();
                     }
-
                 }
             }
 
@@ -139,7 +137,6 @@ public class ProductDao {
                         row.setGif(rs.getString("gif"));
                         book.add(row);
                     }
-
                 }
             }
 
@@ -169,17 +166,14 @@ public class ProductDao {
         return result;
     }
     public void removeProduct(int id) {
-        //boolean result = false;
         try {
             query = "delete from products where id=?";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, id);
             pst.execute();
-            //result = true;
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.print(e.getMessage());
         }
-        //return result;
     }
 }

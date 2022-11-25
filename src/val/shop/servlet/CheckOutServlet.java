@@ -21,7 +21,6 @@ import val.shop.model.*;
 
 @WebServlet("/cart-check-out")
 public class CheckOutServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	private OrderDao oDao;
 	private CartDao cartDao;
 
@@ -31,13 +30,9 @@ public class CheckOutServlet extends HttpServlet {
 		oDao = (OrderDao) servletContext.getAttribute("orderDao");
 		cartDao = (CartDao) servletContext.getAttribute("cartDao");
 	}
-       
-   
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
 		User auth = (User) request.getSession().getAttribute("auth");
 			ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
 
@@ -57,9 +52,6 @@ public class CheckOutServlet extends HttpServlet {
 
 				response.sendRedirect("/orders");
 			}else {
-//				if(auth==null) {
-//					response.sendRedirect("login.jsp");
-//				}
 				response.sendRedirect("/cart");
 			}
 	}

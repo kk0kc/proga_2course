@@ -8,9 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import val.shop.dto.UserForm;
-import val.shop.exceptions.ValidationException;
 import val.shop.services.SignUpService;
-import val.shop.services.validation.ErrorEntity;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -44,20 +42,13 @@ public class SignUpServlet extends HttpServlet {
                     .status("user")
                     .build();
         } catch (NumberFormatException e) {
-            Set<ErrorEntity> errors = new HashSet<>();
-            errors.add(ErrorEntity.INVALID_REQUEST);
-            request.setAttribute("errors", errors);
             request.getRequestDispatcher("sign_up.jsp").forward(request, response);
             return;
         }
 
         try {
             signUpService.signUp(form);
-        } catch (ValidationException e) {
-            request.setAttribute("error", e.getEntity());
-            request.getRequestDispatcher("sign_up.jsp").forward(request, response);
-            return;
-        } catch (SQLException e) {
+        }  catch (SQLException e) {
             throw new RuntimeException(e);
         }
         response.sendRedirect("/user-login");

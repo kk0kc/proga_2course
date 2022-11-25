@@ -7,5 +7,5 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public interface UsersRepository extends CrudRepository<User, Long> {
-    Optional<User> findByEmail(String email) throws SQLException;
+//    Optional<User> findByEmail(String email) throws SQLException;
 }

@@ -19,11 +19,7 @@ import java.util.List;
 
 @WebServlet("/add-rate")
 public class AddRateServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		request.getRequestDispatcher("orders.jsp").forward(request,response);
-
 		String id = request.getParameter("idor");
 		String rate = request.getParameter("rate");
 		if(id != null) {

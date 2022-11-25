@@ -8,7 +8,6 @@ import val.shop.model.*;
 public class OrderDao {
 	
 	private Connection con;
-
 	private String query;
     private PreparedStatement pst;
     private ResultSet rs;
@@ -19,7 +18,6 @@ public class OrderDao {
 		super();
 		this.con = con;
 	}
-
     public void createOrderTab(){
         query = "create table if not exists orders" +
                 "(" +
@@ -37,22 +35,17 @@ public class OrderDao {
         }
     }
 
-
-
     public void updateRate(int id, int rate) {
-        //boolean result = false;
         try {
             query = "update orders set o_quantity = ? where o_id = ?;";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, rate);
             pst.setInt(2, id);
             pst.execute();
-            //result = true;
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.print(e.getMessage());
         }
-        //return result;
     }
 
     public List<Order> filterRate(int id) {
@@ -62,7 +55,6 @@ public class OrderDao {
             pst = this.con.prepareStatement(query);
             pst.setInt(1, id);
             pst.execute();
-            //result = true;
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.print(e.getMessage());
@@ -118,17 +110,14 @@ public class OrderDao {
     }
 
     public void cancelOrder(int id) {
-        //boolean result = false;
         try {
             query = "delete from orders where o_id=?";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, id);
             pst.execute();
-            //result = true;
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.print(e.getMessage());
         }
-        //return result;
     }
 }

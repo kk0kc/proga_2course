@@ -8,16 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartDao {
-
 	private Connection con;
-
 	private String query;
     private PreparedStatement pst;
     private ResultSet rs;
 
 
 
-	public CartDao(Connection con) {  //-- ?
+	public CartDao(Connection con) {
 		super();
 		this.con = con;
 	}

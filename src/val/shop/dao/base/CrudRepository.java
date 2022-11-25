@@ -6,5 +6,4 @@ import java.util.Optional;
 
 public interface CrudRepository<T, K> {
     T save(T item) throws SQLException;
-    void delete(K id);
 }

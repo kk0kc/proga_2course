@@ -20,8 +20,6 @@ import val.shop.model.User;
 
 @WebServlet("/remove-from-cart")
 public class RemoveFromCartServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
 	private CartDao cartDao;
 	@Override
 	public void init(ServletConfig config){
@@ -41,16 +39,11 @@ public class RemoveFromCartServlet extends HttpServlet {
 					for (Cart c : cart_list) {
 						if (c.getId() == Integer.parseInt(id)) {
 							cartDao.cancelCart(c.getId());
-//							cart_list.remove(cart_list.indexOf(c));
 						}
 					}
 				}
-//				response.sendRedirect("cart.jsp");
-
 			}
 				response.sendRedirect("/cart");
-
 		}
 	}
-
 }

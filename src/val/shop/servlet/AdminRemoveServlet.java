@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 @WebServlet("/remove-admin")
 public class AdminRemoveServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
     private ProductDao productDao;
     @Override
     public void init(ServletConfig config){

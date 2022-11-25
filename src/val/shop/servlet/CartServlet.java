@@ -40,9 +40,6 @@ public class CartServlet extends HttpServlet {
             cartProduct = cartDao.userCart(auth.getId());
             cart_list = (ArrayList<Cart>) cartDao.userCart(auth.getId());
         }
-//        else {
-//            response.sendRedirect("login.jsp");
-//        }
         if (cart_list != null) {
             cartProduct = pDao.getCartProducts(cart_list);
             double total = pDao.getTotalCartPrice(cart_list);

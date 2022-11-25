@@ -1,7 +1,6 @@
 package val.shop.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -14,9 +13,7 @@ import val.shop.model.*;
 
 @WebServlet("/user-login")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	private UserDao udao;
-
 	@Override
 	public void init(ServletConfig config){
 		ServletContext servletContext = config.getServletContext();
@@ -48,7 +45,6 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("/adminka");
 		} else {
 			response.sendRedirect("/error-log");
-//			request.getRequestDispatcher("error_log.jsp").forward(request, response);
 		}
 	}
 }

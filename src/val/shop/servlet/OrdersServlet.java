@@ -43,9 +43,6 @@ public class OrdersServlet extends HttpServlet {
                 request.setAttribute("cart_list", cart_list);
             }
         }
-//        else{
-//            response.sendRedirect("login.jsp");
-//        }
         request.setAttribute("orders", orders);
         request.getRequestDispatcher("orders.jsp").forward(request,response);
     }

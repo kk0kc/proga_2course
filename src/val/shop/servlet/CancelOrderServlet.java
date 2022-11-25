@@ -19,7 +19,6 @@ import val.shop.dao.UserDao;
 
 @WebServlet("/cancel-order")
 public class CancelOrderServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	private OrderDao orderDao;
 
 	@Override
@@ -34,7 +33,5 @@ public class CancelOrderServlet extends HttpServlet {
 				orderDao.cancelOrder(Integer.parseInt(id));
 			}
 			response.sendRedirect("/orders");
-
 	}
-
 }

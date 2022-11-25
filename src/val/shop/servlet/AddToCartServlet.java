@@ -24,55 +24,6 @@ import val.shop.model.*;
 
 @WebServlet(name = "AddToCartServlet", urlPatterns = "/add-to-cart")
 public class AddToCartServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        User auth = (User) request.getSession().getAttribute("auth");
-//        if (auth != null) {
-//
-//            try (PrintWriter out = response.getWriter()) {
-////        	out.print("add to cart servlet");
-//
-//                ArrayList<Cart> cartList = new ArrayList<>();
-//                int id = Integer.parseInt(request.getParameter("id"));
-//                Cart cm = new Cart();
-//                cm.setId(id);
-//                cm.setUid(auth.getId());
-//                cm.setQuantity(1);
-//                HttpSession session = request.getSession();
-////            ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-//                CartDao cartDao = new CartDao();
-//                ArrayList<Cart> cart_list = (ArrayList<Cart>) cartDao.userCart(id);
-//                if (cart_list == null) {
-//
-////                cartList.add(cm);
-//                    cartDao.insertCart(cm);
-////                session.setAttribute("cart-list", cartList);
-//                    response.sendRedirect("index.jsp");
-//                } else {
-//                    cartList = cart_list;
-//
-//                    boolean exist = false;
-//                    for (Cart c : cart_list) {
-//                        if (c.getId() == id) {
-//                            exist = true;
-//                            out.println("<h3 style='color:crimson; text-align: center'>Item Already in Cart. <a href='cart.jsp'>GO to Cart Page</a></h3>");
-//                        }
-//                    }
-//
-//                    if (!exist) {
-//                        cartDao.insertCart(cm);
-////                    cartList.add(cm);
-//                        response.sendRedirect("index.jsp");
-//                    }
-//                }
-//            }
-//        }
-//        else {
-//            response.sendRedirect("login.jsp");
-//        }
-//    }
     private CartDao cartDao;
     @Override
     public void init(ServletConfig config)  {
@@ -105,14 +56,9 @@ public class AddToCartServlet extends HttpServlet {
                 }
             }
             if(!exist) {
-                boolean result = cartDao.insertCart(cartModel);
+                cartDao.insertCart(cartModel);
                 response.sendRedirect("/");
             }
-
         }
-//        else {
-//            response.sendRedirect("login.jsp");
-//        }
     }
-
 }

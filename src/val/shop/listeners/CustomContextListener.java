@@ -12,7 +12,6 @@ import val.shop.dao.*;
 import val.shop.dao.impl.UsersRepositoryImpl;
 import val.shop.services.*;
 import val.shop.services.impl.*;
-import val.shop.services.validation.Validator;
 
 import java.sql.Connection;
 
@@ -31,9 +30,7 @@ public class CustomContextListener implements ServletContextListener {
         orderDao.createOrderTab();
         cartDao.createCartTab();
         UsersRepository usersRepository = new UsersRepositoryImpl(new PostgresConnectionToDataBase());
-        PasswordEncoder passwordEncoder = new PasswordEncoderImpl();
-        Validator validator = new ValidatorImpl(usersRepository);
-        SignUpService signUpService = new SignUpServiceImpl(usersRepository, passwordEncoder, validator);
+        SignUpService signUpService = new SignUpServiceImpl(usersRepository);
         servletContext.setAttribute("productDao", productDao);
         servletContext.setAttribute("orderDao", orderDao);
         servletContext.setAttribute("cartDao", cartDao);
