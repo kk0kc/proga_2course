@@ -1,4 +1,6 @@
-package org.example;
+package org.example.first;
+
+import org.example.MyPacket;
 
 import java.io.IOException;
 import java.io.InputStream;

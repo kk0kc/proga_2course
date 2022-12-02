@@ -1,4 +1,6 @@
-package org.example;
+package org.example.second;
+
+import org.example.MyPacket;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -6,22 +8,20 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
-public class MyServer implements Runnable {
+public class MyServerTwo implements Runnable {
     private Integer port;
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private InputStream inputStream;
     private OutputStream outputStream;
 
-    private MyServer() {
+    private MyServerTwo() {
 
     }
 
-    public static MyServer create(Integer port) throws IOException {
-        MyServer server = new MyServer();
+    public static MyServerTwo create(Integer port) throws IOException {
+        MyServerTwo server = new MyServerTwo();
         server.port = port;
         server.serverSocket = new ServerSocket(port);
         return server;
@@ -51,22 +51,6 @@ public class MyServer implements Runnable {
         System.arraycopy(buffer, 0, data, 0, counter);
         return data;
     }
-    private static String getCodingIncodMessage(String message, int key) {
-        StringBuilder strBox = new StringBuilder(message.length());
-        char tmp;
-        for (int i = 0; i < message.length(); i++) {
-            tmp = message.charAt(i);
-            if (Character.isLetter(message.charAt(i))) {
-                tmp += key % 26;
-                if (tmp > 'z')
-                    tmp = (char)(tmp % 'z' + 'a');
-                else if (tmp < 'a')
-                    tmp = (char)(tmp + 25);
-            }
-            strBox.append(tmp);
-        }
-        return strBox.toString();
-    }
 
     @Override
     public void run() {
@@ -85,10 +69,9 @@ public class MyServer implements Runnable {
                 }
 
                 String value1 = packet.getValue(1, String.class);
-                String value2 = packet.getValue(2,String.class);
 
                 MyPacket response = MyPacket.create(1);
-                response.setValue(1, getCodingIncodMessage(value1, -Integer.parseInt(value2)));
+                response.setValue(1, value1);
                 outputStream.write(response.toByteArray());
                 outputStream.flush();
             }
@@ -97,8 +80,8 @@ public class MyServer implements Runnable {
         }
     }
     public static void main(String[] args) throws IOException {
-        MyServer server = MyServer.create(4444);
-        System.out.println("waiting...........");
+        MyServerTwo server = MyServerTwo.create(4444);
+        System.out.println("waiting client...........");
 
         while (true) {
             server.run();
