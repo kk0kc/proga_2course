@@ -14,7 +14,7 @@ import java.util.List;
 public class FavRepository {
     public List<Fav> findAll() {
         // language=SQL
-        String findAll = "select * from posts_table";
+        String findAll = "select * from fav_table";
         try (Connection connection = PostgresConnectionProvider.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(findAll);
             ResultSet resultSet = statement.executeQuery();
@@ -37,11 +37,11 @@ public class FavRepository {
             throw new IllegalArgumentException(e);
         }
     }
-    public void update(Fav fav) {
+    public void save(Fav fav) {
         // language=SQL
-        String update = "update fav_table set user_id = ?, post_id = ?";
+        String save = "insert into fav_table (user_id, post_id) values (?, ?)";
         try (Connection connection = PostgresConnectionProvider.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(update);
+            PreparedStatement statement = connection.prepareStatement(save);
             statement.setLong(1, fav.getUserID());
             statement.setLong(2, fav.getPostID());
 
@@ -50,4 +50,17 @@ public class FavRepository {
             throw new IllegalArgumentException(e);
         }
     }
+//    public void update(Fav fav) {
+//        // language=SQL
+//        String update = "update fav_table set user_id = ?, post_id = ?";
+//        try (Connection connection = PostgresConnectionProvider.getConnection()) {
+//            PreparedStatement statement = connection.prepareStatement(update);
+//            statement.setLong(1, fav.getUserID());
+//            statement.setLong(2, fav.getPostID());
+//
+//            statement.execute();
+//        } catch (SQLException e) {
+//            throw new IllegalArgumentException(e);
+//        }
+//    }
 }

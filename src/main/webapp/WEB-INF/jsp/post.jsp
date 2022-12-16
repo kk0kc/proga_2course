@@ -9,7 +9,7 @@
 <body style="background-color: #e0f0ff">
 	<jsp:include page="/jsp/navbar.jsp" />
 	<hr>
-	<a href="add_fav?id=${post.getId()}" style="background-color: #3b91fa; border-color: #3b91fa" class="btn btn-primary">Добавить в избранные</a>
+	<a href="${pageContext.request.contextPath}/add_fav?id=${post.getId()}" style="background-color: #3b91fa; border-color: #3b91fa" class="btn btn-primary">Добавить в избранные</a>
 	<div class="w-50 mx-auto">
 		<h2 class="mb-5">${post.getTitle()}</h2>
 		<div class="mb-5">
@@ -50,7 +50,7 @@
 
 
 	<h3 class="text-center">Похожие</h3>
-	<div class="container"  >
+	<div class="container">
 
 		<div class="row">
 			<c:forEach var="posts" items="${posts}">

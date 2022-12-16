@@ -26,8 +26,8 @@ public class AddToFavServlet extends HttpServlet {
                 .userID(user.getId())
                 .postID(postId)
                 .build();
-        favService.updateFav(fav);
+        favService.saveFav(fav);
 
-        response.sendRedirect("/post");
+        response.sendRedirect("/posts/"+postId);
     }
 }

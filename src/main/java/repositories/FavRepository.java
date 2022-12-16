@@ -15,7 +15,8 @@ import java.util.function.Function;
 
 public class FavRepository implements EntityRepository<Fav> {
     private static final String SELECT_ALL = "select * from fav_table";
-    private static final String UPDATE = "update fav_table set user_id = ?, post_id = ?";
+//    private static final String UPDATE = "update fav_table set user_id = ?, post_id = ?";
+    private static final String INSERT = "insert into fav_table (user_id, post_id) values (?, ?)";
     private static final Function<ResultSet, Fav> POST_MAPPER = resultSet -> {
         try {
             return Fav.builder()
@@ -52,20 +53,33 @@ public class FavRepository implements EntityRepository<Fav> {
 
     @Override
     public void save(Fav fav) {
-
-    }
-
-    @Override
-    public void update(Fav fav) {
         try (Connection connection = PostgresConnectionProvider.getConnection();
-             PreparedStatement statement = connection.prepareStatement(UPDATE)) {
+             PreparedStatement statement = connection.prepareStatement(INSERT)) {
             statement.setLong(1, fav.getUserID());
             statement.setLong(2, fav.getPostID());
 
             statement.executeUpdate();
+
+            ResultSet keys = statement.getGeneratedKeys();
+
+            if (keys.next()) {
+                fav.setId(keys.getLong(1));
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    @Override
+    public void update(Fav fav) {
+//        try (Connection connection = PostgresConnectionProvider.getConnection();
+//             PreparedStatement statement = connection.prepareStatement(UPDATE)) {
+//            statement.setLong(1, fav.getUserID());
+//            statement.setLong(2, fav.getPostID());
+//
+//            statement.executeUpdate();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @Override
